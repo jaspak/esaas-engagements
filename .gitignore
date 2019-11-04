@@ -40,7 +40,7 @@ docker-compose.yml
 
 *.rbc
 capybara-*.html
-.rspec
+# .rspec
 /db/*.sqlite3-[0-9]*
 /public/system
 /spec/tmp
