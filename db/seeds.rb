@@ -1,7 +1,5 @@
 require 'csv'
 
-raise ArgumentError, 'Seeding in Production' if Rails.env.production?
-
 # create users and orgs
 CSV.foreach("#{Rails.root}/db/user_orgs.csv", headers: true, header_converters: :symbol) do |row|
 	user = User.find_or_create_by!(email: row[:user_email]) do |u|
