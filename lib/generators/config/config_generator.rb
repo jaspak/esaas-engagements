@@ -4,9 +4,10 @@ class ConfigGenerator < Rails::Generators::Base
   source_root File.expand_path('../templates', __FILE__)
 
   # General Config
-  class_option :use_cache, type: :boolean,
+  class_option :cache, type: :boolean,
                default: true,
-               desc: 'Use cached config in ".esaas-engagements-config.yml" if present'
+               desc: 'Whether to use cached config in ".esaas-engagements-config.yml" if present.
+                      Cached values will override defaults and command-line options.'
   class_option :ruby_version, type: :string,
                default: '2.4.5',
                desc: 'Ruby version should match one set in Gemfile.
@@ -31,6 +32,7 @@ class ConfigGenerator < Rails::Generators::Base
   class_option :pg_host, type: :string,
                default: 'postgres-server',
                desc: 'Hostname for the Postgres instance.
+                      Only useful for production environment.
                       Default "postgres-server" results in the creation of a postgres docker instance.'
   class_option :pg_port, type: :string,
                default: '5432',
@@ -38,6 +40,10 @@ class ConfigGenerator < Rails::Generators::Base
   class_option :pg_dbase, type: :string,
                default: 'esass-engagements',
                desc: 'Postgresql Database'
+  class_option :pg_vmap, type: :boolean,
+               default: false,
+               desc: 'Whether to use volume mapping for Postgres Docker instance.
+                      Only relevant if "--pg_host" is "postgres-server". Volume maps to Rails.root/tmp/db.'
 
   # Email Config
   class_option :sendgrid_key, type: :string,
@@ -96,7 +102,7 @@ class ConfigGenerator < Rails::Generators::Base
                       Default address minio-s3mock:9000 uses Minio available in the docker compose network.'
 
   def get_config
-    if File.exist? Rails.root.join('.esaas-engagements-config.json') and @options[:use_cache]
+    if File.exist? Rails.root.join('.esaas-engagements-config.json') and @options[:cache]
       say 'Reading configurations from ' + set_color('.esaas-engagements-config.json', :green, :bold)
       @options = @options.map {|k, v| [k.to_sym, v]}.to_h
       cached_options = JSON.load(Rails.root.join('.esaas-engagements-config.json'))
@@ -113,12 +119,15 @@ class ConfigGenerator < Rails::Generators::Base
       if val == '<Randomly generated>'
         val = if opt.to_s.start_with? 'pg'
                 SecureRandom.hex(16)
+              elsif opt.to_s.starts_with? 'prod'
+                SecureRandom.hex(128)
               else
                 SecureRandom.hex(64)
               end
       end
       [opt.to_sym, val]
     end
+
     @options = @options.to_h
 
     # PostgresDSN = postgresql://[user[:password]@][netloc][:port][/dbname][?param1=value1&...]
