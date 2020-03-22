@@ -6,7 +6,7 @@ ruby '2.4.5'
 gem 'rails', '4.2.11.1'
 gem 'omniauth-github'
 gem 'select2-rails', '~> 4.0', '>= 4.0.3'
-gem 'json'
+gem 'json', '>= 2.3.0'
 gem 'figaro'
 gem 'haml'
 gem 'sass-rails', '~> 5.0'
@@ -29,7 +29,7 @@ end
 group :development, :test do
   gem 'sqlite3', "~> 1.3.6"
   gem 'byebug'
-  gem 'simplecov', :require => false
+  gem 'simplecov', '>= 0.17.1', :require => false
 end
 
 group :test do
@@ -55,7 +55,7 @@ end
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
-  gem 'sdoc', '~> 0.4.0'
+  gem 'sdoc', '~> 1.0.0'
 end
 
 # Use ActiveModel has_secure_password
