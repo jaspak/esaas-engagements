@@ -3,25 +3,25 @@ source 'https://rubygems.org'
 # Keep Ruby version in Gemfile in sync with Ruby version in Dockerfile
 ruby '2.4.5'
 
-gem 'rails', '4.2.11.1'
+gem 'rails', '5.2.4.3'
 gem 'omniauth-github'
 gem 'select2-rails', '~> 4.0', '>= 4.0.3'
 gem 'json'
 gem 'figaro'
 gem 'haml'
-gem 'sass-rails', '~> 5.0'
+gem 'sass-rails', '~> 5.0', '>= 5.0.7'
 gem 'bootstrap-sass'
 gem 'uglifier', '>= 1.3.0'
-gem 'coffee-rails', '~> 4.1.1'
-gem 'jquery-rails'
-gem 'jbuilder', '~> 2.0'
+gem 'coffee-rails', '~> 4.2.2'
+gem 'jquery-rails', '>= 4.3.5'
+gem 'jbuilder', '~> 2.9', '>= 2.9.1'
 gem 'bootstrap_form'
 gem 'paperclip', '~> 5.2.1'
 gem 'aws-sdk', '~> 2.3.0'
 
 group :development do
   # Access an IRB console on exception pages or by using <%= console %> in views
-  gem 'web-console', '~> 2.0'
+  gem 'web-console', '~> 2.3', '>= 2.3.0'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
 end
@@ -33,14 +33,14 @@ group :development, :test do
 end
 
 group :test do
-  gem 'cucumber-rails', :require => false
-  gem 'cucumber-rails-training-wheels'
+  gem 'cucumber-rails', '>= 2.0.0', :require => false
+  gem 'cucumber-rails-training-wheels', '>= 1.0.0'
   gem 'poltergeist'
-  gem 'rspec-rails'
+  gem 'rspec-rails', '>= 3.9.0'
   gem 'puma', '>= 4.3.1'
   gem 'guard-rspec'
   gem 'factory_bot_rails', '>= 4.11.1', '< 5.0.0'
-  gem 'jasmine-rails'
+  gem 'jasmine-rails', '>= 0.15.0'
   gem 'database_cleaner'
   gem 'timecop'
   gem 'launchy'
