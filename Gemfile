@@ -33,8 +33,8 @@ group :development, :test do
 end
 
 group :test do
-  gem 'cucumber-rails', :require => false
-  gem 'cucumber-rails-training-wheels'
+  gem 'cucumber-rails', '>= 2.1.0', :require => false
+  gem 'cucumber-rails-training-wheels', '>= 1.0.0'
   gem 'poltergeist'
   gem 'rspec-rails'
   gem 'puma', '>= 4.3.1'
