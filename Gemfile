@@ -4,7 +4,7 @@ source 'https://rubygems.org'
 ruby '2.4.5'
 
 gem 'rails', '4.2.11.1'
-gem 'omniauth-github'
+gem 'omniauth-github', '>= 2.0.0'
 gem 'select2-rails', '~> 4.0', '>= 4.0.3'
 gem 'json'
 gem 'figaro'
