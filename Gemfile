@@ -55,7 +55,7 @@ end
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
-  gem 'sdoc', '~> 0.4.0'
+  gem 'sdoc', '~> 1.0.0'
 end
 
 # Use ActiveModel has_secure_password
