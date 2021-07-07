@@ -33,9 +33,9 @@ group :development, :test do
 end
 
 group :test do
-  gem 'cucumber-rails', :require => false
-  gem 'cucumber-rails-training-wheels'
-  gem 'poltergeist'
+  gem 'cucumber-rails', '>= 2.0.0', :require => false
+  gem 'cucumber-rails-training-wheels', '>= 1.0.0'
+  gem 'poltergeist', '>= 1.18.1'
   gem 'rspec-rails'
   gem 'puma', '>= 4.3.1'
   gem 'guard-rspec'
@@ -43,7 +43,7 @@ group :test do
   gem 'jasmine-rails'
   gem 'database_cleaner'
   gem 'timecop'
-  gem 'launchy'
+  gem 'launchy', '>= 2.4.3'
 end
 
 gem 'axe-matchers', group: [:test, :development]
