@@ -3,13 +3,13 @@ source 'https://rubygems.org'
 # Keep Ruby version in Gemfile in sync with Ruby version in Dockerfile
 ruby '2.4.5'
 
-gem 'rails', '4.2.11.1'
+gem 'rails', '7.0.0'
 gem 'omniauth-github'
 gem 'select2-rails', '~> 4.0', '>= 4.0.3'
 gem 'json'
 gem 'figaro'
 gem 'haml'
-gem 'sass-rails', '~> 5.0'
+gem 'sass-rails', '~> 6.0', '>= 6.0.0'
 gem 'bootstrap-sass'
 gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.1.1'
@@ -21,7 +21,7 @@ gem 'aws-sdk', '~> 2.3.0'
 
 group :development do
   # Access an IRB console on exception pages or by using <%= console %> in views
-  gem 'web-console', '~> 2.0'
+  gem 'web-console', '~> 3.0', '>= 3.0.0'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
 end
@@ -33,7 +33,7 @@ group :development, :test do
 end
 
 group :test do
-  gem 'cucumber-rails', :require => false
+  gem 'cucumber-rails', '>= 3.0.0', :require => false
   gem 'cucumber-rails-training-wheels'
   gem 'poltergeist'
   gem 'rspec-rails'
