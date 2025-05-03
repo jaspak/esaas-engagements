@@ -36,7 +36,7 @@ group :test do
   gem 'cucumber-rails', :require => false
   gem 'cucumber-rails-training-wheels'
   gem 'poltergeist'
-  gem 'rspec-rails'
+  gem 'rspec-rails', '>= 8.0.0'
   gem 'puma', '>= 4.3.1'
   gem 'guard-rspec'
   gem 'factory_bot_rails', '>= 4.11.1', '< 5.0.0'
