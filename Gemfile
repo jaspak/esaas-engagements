@@ -39,7 +39,7 @@ group :test do
   gem 'rspec-rails'
   gem 'puma', '>= 4.3.1'
   gem 'guard-rspec'
-  gem 'factory_bot_rails', '>= 4.11.1', '< 5.0.0'
+  gem 'factory_bot_rails', '~> 6.5'
   gem 'jasmine-rails'
   gem 'database_cleaner'
   gem 'timecop'
